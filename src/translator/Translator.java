@@ -7,7 +7,7 @@ package translator;
 
 /**
  *
- * @author Henrik
+ * @author Henrik & Jakob
  */
 public class Translator {
 
