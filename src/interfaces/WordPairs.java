@@ -14,6 +14,12 @@ public class WordPairs
     public String dkWord;
     public String engWord;
     
+    public WordPairs(String dkWord, String engWord)
+    {
+        this.dkWord = dkWord;
+        this.engWord = engWord;
+    }
+    
     public WordPairs(boolean language, String word)
     {  
         if(language == true)
