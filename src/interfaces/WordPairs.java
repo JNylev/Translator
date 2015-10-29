@@ -27,6 +27,16 @@ public class WordPairs
         
     } 
     
+    public boolean firstLetterCheckDK(String index)
+    {
+        return dkWord.startsWith(index);
+    }
+    
+    public boolean firstLetterCheckEng(String index)
+    {
+        return engWord.startsWith(index);
+    }
+    
     public String getDanishWord()
     {
         return dkWord;
