@@ -7,7 +7,7 @@ package interfaces;
 
 /**
  *
- * @author jakob
+ * @author Henrik & Jakob
  */
 public class WordPairs {
     
