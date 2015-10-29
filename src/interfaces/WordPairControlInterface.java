@@ -2,7 +2,7 @@ package interfaces;
 
 /**
  *
- * @author CHU
+ * @author Henrik & Jakob
  */
 
 public interface WordPairControlInterface
