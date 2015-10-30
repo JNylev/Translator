@@ -123,6 +123,7 @@ public class Translator implements WordPairControlInterface {
     
     public ArrayList getList()
     {
+        
         return wordList;
     }
     
@@ -131,6 +132,9 @@ public class Translator implements WordPairControlInterface {
             public static void main(String[] args) 
         {
           // TODO code application logic here
-          
+            FileHandlerComplex FileHandler = new FileHandlerComplex();
+            Translator trans = new Translator();  
+            trans.load("Filename.txt");
+            
         }
 }
