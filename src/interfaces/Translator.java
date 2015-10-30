@@ -5,6 +5,9 @@
  */
 package interfaces;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  *
  * @author Henrik & Jakob 
@@ -17,7 +20,7 @@ public class Translator implements WordPairControlInterface {
       int size;
       String question;
       String answer;
-        
+      public ArrayList<WordPairs> wordList = new ArrayList();  
         
     /**
      * @param args the command line arguments
@@ -29,20 +32,31 @@ public class Translator implements WordPairControlInterface {
      */
     public void add(String question, String answer)
     {
-        
+        WordPairs tempPair = new WordPairs(question, answer); 
+        wordList.add(tempPair);
     }
     
     // Return the number of wordpairs in the collection (not the file).
     public int size()
     {
         
+        if(wordList!=null)
+        {
+            size = wordList.size();
+        }
+        else
+        {
+            size = 0;
+        }
         return size;
     }
     
     
     public String getRandomQuestion()
     {
-        
+        Random rGen = new Random();
+        int randNr = rGen.nextInt(size());
+        String question = wordList.get(randNr).getDanishWord();
         return question;
     }
     
@@ -52,7 +66,17 @@ public class Translator implements WordPairControlInterface {
      */
     public boolean checkGuess(String question, String quess)
     {
-        
+        pairExists = false;
+        for(int i = 0; i < size(); i++)
+        {
+            if(question.equalsIgnoreCase(wordList.get(i).getDanishWord()))
+            {
+                if(quess.equalsIgnoreCase(wordList.get(i).getEnglishWord()))
+                {
+                pairExists = true;
+                }
+            }
+        }
         return pairExists;
     }
     
@@ -62,7 +86,14 @@ public class Translator implements WordPairControlInterface {
     */
     public String lookup(String question)
     {
-        return answer;
+        for(int i = 0; i < size(); i++)
+        {
+            if(question.equalsIgnoreCase(wordList.get(i).getDanishWord()))
+            {
+                return wordList.get(i).getEnglishWord();
+            }
+        }
+        return null;
     }
     
     /*
@@ -87,8 +118,7 @@ public class Translator implements WordPairControlInterface {
     //The existing collection of word pairs is cleared
     public void clear()
     {
-        
-        
+        wordList.clear();
     }
     
     
