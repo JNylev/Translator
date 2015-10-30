@@ -21,9 +21,6 @@ public class Translator implements WordPairControlInterface {
       String question;
       String answer;
       public ArrayList<WordPairs> wordList = new ArrayList();  
-      FileHandlerComplex fileHandler = new FileHandlerComplex();
-     public static Translator trans = new Translator();  
-       
         
     /**
      * @param args the command line arguments
@@ -105,15 +102,7 @@ public class Translator implements WordPairControlInterface {
     */
     public boolean load(String filename)
     {
-        
-          if(fileHandler.loadWordList() != null ) 
-          {
-              wordList = fileHandler.loadWordList();
-              return true;
-          }
-          
-        
-        return false;
+        return loaded;
     }
     
     /*
@@ -132,30 +121,20 @@ public class Translator implements WordPairControlInterface {
         wordList.clear();
     }
     
-    public ArrayList<WordPairs> getList()
+    public ArrayList getList()
     {
         
         return wordList;
     }
     
-    public String displayAll()
-    {
-        String content = "";
-        for(int i = 0; i < size(); i++)
-        {
-            content += "The question is: " + wordList.get(i).getDanishWord() + " And the answer is: " + wordList.get(i).getEnglishWord() + "\n";
-        }
-        return content;
-    }
     
 
-    public static void main(String[] args) 
-    {
-      // TODO code application logic here
-
-         trans.load("Filename.txt");
-        System.out.println(trans.displayAll());
-        
-       new GUI().setVisible(true);
-    }
+            public static void main(String[] args) 
+        {
+          // TODO code application logic here
+            FileHandlerComplex FileHandler = new FileHandlerComplex();
+            Translator trans = new Translator();  
+            trans.load("Filename.txt");
+            
+        }
 }
