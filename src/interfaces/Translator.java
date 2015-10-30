@@ -147,12 +147,14 @@ public class Translator implements WordPairControlInterface {
     }
     
 
-        public static void main(String[] args) 
-        {
-          // TODO code application logic here
-            
-            Translator trans = new Translator();  
-            trans.load("Filename.txt");
-            System.out.println(trans.displayAll());
-        }
+    public static void main(String[] args) 
+    {
+      // TODO code application logic here
+
+        Translator trans = new Translator();  
+        trans.load("Filename.txt");
+        System.out.println(trans.displayAll());
+
+        new GUITest().setVisible(true);
+    }
 }
