@@ -121,6 +121,10 @@ public class Translator implements WordPairControlInterface {
         wordList.clear();
     }
     
+    public ArrayList getList()
+    {
+        return wordList;
+    }
     
     
 
