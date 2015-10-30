@@ -23,8 +23,7 @@ public class FileHandlerComplex
 
     
     
-public ArrayList<WordPairs> loadComplexItems()
-    
+public ArrayList<WordPairs> loadComplexItems()    
 {
         
 ArrayList<WordPairs> ComplexItems = new ArrayList();
