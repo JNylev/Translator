@@ -130,12 +130,21 @@ public class Translator implements WordPairControlInterface {
         wordList.clear();
     }
     
-    public ArrayList getList()
+    public ArrayList<WordPairs> getList()
     {
         
         return wordList;
     }
     
+    public String displayAll()
+    {
+        String content = "";
+        for(int i = 0; i < size(); i++)
+        {
+            content += "The question is: " + wordList.get(i).getDanishWord() + " And the answer is: " + wordList.get(i).getEnglishWord() + "\n";
+        }
+        return content;
+    }
     
 
         public static void main(String[] args) 
@@ -144,6 +153,6 @@ public class Translator implements WordPairControlInterface {
             
             Translator trans = new Translator();  
             trans.load("Filename.txt");
-            
+            System.out.println(trans.displayAll());
         }
 }
