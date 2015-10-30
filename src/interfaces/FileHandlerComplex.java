@@ -19,15 +19,8 @@ import java.util.ArrayList;
 
 public class FileHandlerComplex
 {
-    private String filename; 
+    private final String filename = "Filename.txt"; 
 
-    public void setFile(String aFileName)
-    
-{
-        
-	filename = aFileName;
-    
-}
     
     
 public ArrayList<WordPairs> loadComplexItems()
