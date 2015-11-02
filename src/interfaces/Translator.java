@@ -36,28 +36,9 @@ public class Translator implements WordPairControlInterface {
      */
     public void add(String question, String answer)
     {
-        boolean add = true;
-        for(int i = 0; i < size(); i++)
-        {
-            if(question.equalsIgnoreCase(wordList.get(i).getDanishWord()))
-            {
-             add = false;
-            }
-        }
-        
-        if(add)
-        {
         clear();
         WordPairs tempPair = new WordPairs(question, answer); 
-        wordList.add(tempPair);  
-        }
-        else
-        {
-            System.out.println("The word allready exists in the dictionary");
-        }
-        
-        
-        
+        wordList.add(tempPair);       
     }
     
     // Return the number of wordpairs in the collection (not the file).

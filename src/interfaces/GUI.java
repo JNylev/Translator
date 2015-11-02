@@ -189,24 +189,37 @@ public class GUI extends javax.swing.JFrame {
 
     private void guessAnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessAnswerButtonActionPerformed
         // TODO add your handling code here:
+      
         if(trans.checkGuess(questionTextField.getText(),answerTextField.getText()))
         {
             outputArea.setText("You are completely correct, son!");
         }
         else
         {
-            outputArea.setText("Loser....");
+            outputArea.setText("You are incorrect....");
         }
         
     }//GEN-LAST:event_guessAnswerButtonActionPerformed
 
     private void newWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWpButtonActionPerformed
         // TODO add your handling code here:
-        
-        trans.add( questionTextField.getText(), answerTextField.getText() );
-       trans.save(fileName);
-       trans.load(fileName);
-       outputArea.setText("New wordpair added and saved.");
+        if( checkTextFields() )
+        {         
+            String text = trans.lookup(questionTextField.getText());
+            if( text == null)
+            {
+
+     
+                         trans.add( questionTextField.getText(), answerTextField.getText() );
+                         trans.save(fileName);
+                         trans.load(fileName);
+                         outputArea.setText("New wordpair added and saved.");
+   
+
+            }
+            else  outputArea.setText("Wordpair already exists.");
+        }
+
     }//GEN-LAST:event_newWpButtonActionPerformed
 
     /**
@@ -243,6 +256,29 @@ public class GUI extends javax.swing.JFrame {
                 new GUI().setVisible(true);
             }
         });
+    }
+    
+    public boolean checkTextFields()
+    {
+        
+           if( !questionTextField.getText().isEmpty() )
+           {
+               if( !answerTextField.getText().isEmpty() )
+               {
+                   return true;
+               }
+               else 
+               {
+                   outputArea.setText("Missing text in answer field.");
+                   return false;
+               }
+           }
+           else 
+           {
+            outputArea.setText("Missing text in question field.");
+            return false;
+           }
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
