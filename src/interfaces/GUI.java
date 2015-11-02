@@ -11,13 +11,15 @@ package interfaces;
  */
 public class GUI extends javax.swing.JFrame {
 
+    String fileName = "Filename.txt";
     Translator trans = new Translator();
     /**
      * Creates new form GUITest
      */
+    
     public GUI() {
         
-        trans.load("Filename.txt");     
+        trans.load(fileName);     
         setResizable( false ); 
         initComponents();
         
@@ -56,6 +58,11 @@ public class GUI extends javax.swing.JFrame {
         });
 
         newWpButton.setText("New");
+        newWpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newWpButtonActionPerformed(evt);
+            }
+        });
 
         lookUpWpButton.setText("Look Up");
         lookUpWpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +177,12 @@ public class GUI extends javax.swing.JFrame {
     private void guessAnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessAnswerButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_guessAnswerButtonActionPerformed
+
+    private void newWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWpButtonActionPerformed
+        // TODO add your handling code here:
+        trans.add( questionTextField.getText(), answerTextField.getText() );
+       trans.save(fileName);
+    }//GEN-LAST:event_newWpButtonActionPerformed
 
     /**
      * @param args the command line arguments

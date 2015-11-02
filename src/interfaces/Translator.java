@@ -35,6 +35,7 @@ public class Translator implements WordPairControlInterface {
      */
     public void add(String question, String answer)
     {
+        clear();
         WordPairs tempPair = new WordPairs(question, answer); 
         wordList.add(tempPair);
     }
@@ -123,6 +124,12 @@ public class Translator implements WordPairControlInterface {
     
     public boolean save(String filename)
     {
+
+            //Saving
+           
+         
+         fileHandler.saveWordList(wordList);     
+         
         return saved;
     }
     

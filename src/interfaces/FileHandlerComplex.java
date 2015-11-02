@@ -62,7 +62,7 @@ public class FileHandlerComplex
         }
     }
 
-    public void saveWordList(ArrayList<WordPairs> WordList, int choice)
+    public void saveWordList(ArrayList<WordPairs> WordList)
     {       
         FileWriter TheFileWriter;
         String content = "";
@@ -71,7 +71,7 @@ public class FileHandlerComplex
         {    
             for(int i = 0; i < WordList.size(); i++)
             {
-                content += WordList.get(i).getDanishWord() + "," + WordList.get(i).getEnglishWord() + "\n";
+                content += "\n" + WordList.get(i).getDanishWord() + "," + WordList.get(i).getEnglishWord();
             }     
             TheFileWriter = new FileWriter(new File(filename),true);
             TheFileWriter.write(content);
