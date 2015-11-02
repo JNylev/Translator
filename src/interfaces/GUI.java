@@ -12,13 +12,13 @@ package interfaces;
 public class GUI extends javax.swing.JFrame {
 
     String fileName = "Filename.txt";
-    Translator trans = new Translator();
+    WordPairControlInterface trans;
     /**
      * Creates new form GUITest
      */
     
     public GUI() {
-        
+        trans = new Translator();
         trans.load(fileName);     
         setResizable( false ); 
         initComponents();
@@ -155,7 +155,6 @@ public class GUI extends javax.swing.JFrame {
 
     private void nextQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionButtonActionPerformed
         // TODO add your handling code here:
-        System.out.println( trans.displayAll() );
         String text = trans.getRandomQuestion();
         questionTextField.setText( text );
         
@@ -165,6 +164,8 @@ public class GUI extends javax.swing.JFrame {
 
     private void lookUpWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookUpWpButtonActionPerformed
         // TODO add your handling code here:
+        String text = trans.lookup(questionTextField.getText());
+        answerTextField.setText( text );
     }//GEN-LAST:event_lookUpWpButtonActionPerformed
 
     private void answerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerTextFieldActionPerformed
@@ -177,6 +178,15 @@ public class GUI extends javax.swing.JFrame {
 
     private void guessAnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessAnswerButtonActionPerformed
         // TODO add your handling code here:
+        if(trans.checkGuess(questionTextField.getText(),answerTextField.getText()))
+        {
+            System.out.println("You are completely correct, son!");
+        }
+        else
+        {
+            System.out.println("Loser....");
+        }
+        
     }//GEN-LAST:event_guessAnswerButtonActionPerformed
 
     private void newWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWpButtonActionPerformed
