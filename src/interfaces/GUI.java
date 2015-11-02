@@ -189,16 +189,17 @@ public class GUI extends javax.swing.JFrame {
 
     private void guessAnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessAnswerButtonActionPerformed
         // TODO add your handling code here:
-      
-        if(trans.checkGuess(questionTextField.getText(),answerTextField.getText()))
+        if( checkTextFields() )  
         {
-            outputArea.setText("You are completely correct, son!");
+            if(trans.checkGuess(questionTextField.getText(),answerTextField.getText()))
+            {
+                outputArea.setText("You are completely correct, son!");
+            }
+            else
+            {
+                outputArea.setText("You are incorrect....");
+            }
         }
-        else
-        {
-            outputArea.setText("You are incorrect....");
-        }
-        
     }//GEN-LAST:event_guessAnswerButtonActionPerformed
 
     private void newWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWpButtonActionPerformed
