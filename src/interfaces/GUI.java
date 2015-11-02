@@ -155,6 +155,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void nextQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionButtonActionPerformed
         // TODO add your handling code here:
+        System.out.println( trans.displayAll() );
         String text = trans.getRandomQuestion();
         questionTextField.setText( text );
         
@@ -180,8 +181,10 @@ public class GUI extends javax.swing.JFrame {
 
     private void newWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWpButtonActionPerformed
         // TODO add your handling code here:
+        
         trans.add( questionTextField.getText(), answerTextField.getText() );
        trans.save(fileName);
+       trans.load(fileName);
     }//GEN-LAST:event_newWpButtonActionPerformed
 
     /**

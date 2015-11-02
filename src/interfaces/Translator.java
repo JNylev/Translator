@@ -20,6 +20,7 @@ public class Translator implements WordPairControlInterface {
       int size;
       String question;
       String answer;
+      String fileName = "Filename.txt";
       public ArrayList<WordPairs> wordList = new ArrayList();  
       FileHandlerComplex fileHandler = new FileHandlerComplex();
      
@@ -38,6 +39,8 @@ public class Translator implements WordPairControlInterface {
         clear();
         WordPairs tempPair = new WordPairs(question, answer); 
         wordList.add(tempPair);
+        
+        
     }
     
     // Return the number of wordpairs in the collection (not the file).
