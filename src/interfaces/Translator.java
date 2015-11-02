@@ -22,7 +22,7 @@ public class Translator implements WordPairControlInterface {
       String answer;
       public ArrayList<WordPairs> wordList = new ArrayList();  
       FileHandlerComplex fileHandler = new FileHandlerComplex();
-     public static Translator trans = new Translator();  
+     
        
         
     /**
@@ -133,8 +133,7 @@ public class Translator implements WordPairControlInterface {
     }
     
     public ArrayList<WordPairs> getList()
-    {
-        
+    {  
         return wordList;
     }
     
@@ -148,14 +147,4 @@ public class Translator implements WordPairControlInterface {
         return content;
     }
     
-
-    public static void main(String[] args) 
-    {
-      // TODO code application logic here
-
-         trans.load("Filename.txt");
-        System.out.println(trans.displayAll());
-        
-       new GUI().setVisible(true);
-    }
 }
