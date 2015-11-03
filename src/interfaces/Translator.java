@@ -11,6 +11,7 @@ import java.util.Random;
 /**
  *
  * @author Henrik & Jakob 
+ * This is the controller.
  */
 public class Translator implements WordPairControlInterface {
 
