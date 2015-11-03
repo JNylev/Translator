@@ -8,3 +8,4 @@ Mus,Mouse
 Sko,Shoe
 Sprog,Language
 Tal,Number
+Hund,Dog

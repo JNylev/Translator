@@ -17,16 +17,17 @@ import java.util.ArrayList;
 
 
 
-public class FileHandlerComplex
+public class FileHandler
 {
     private final String filename = "Filename.txt"; 
 
-    public ArrayList<WordPairs> loadWordList()    
+    public String loadWordList()    
     {
 
         ArrayList<WordPairs> WordList = new ArrayList();
 
-        String NewLine;
+        String newLine;
+        String stringList ="";
 
         FileReader TheFileReader;
 
@@ -38,41 +39,43 @@ public class FileHandlerComplex
             TheFileReader = new FileReader(new File(filename));
             TheBufferedReader = new BufferedReader(TheFileReader);
 
-            while((NewLine = TheBufferedReader.readLine()) != null)           
+            while((newLine = TheBufferedReader.readLine()) != null)           
             {
-                String[] WordListArray = NewLine.split(",");
-                WordList.add(new WordPairs(WordListArray[0],WordListArray[1]));
+                
+                stringList += newLine +",";
+                
+                
+                //WordList.add(new WordPairs(WordListArray[0],WordListArray[1]));
             }
 
             TheBufferedReader.close();
 
-            return WordList;
+            return stringList;
         }
         catch (FileNotFoundException ex)
         {
             System.out.println("Could not find file!");
             System.out.println(ex.toString());
-            return WordList;
+            return stringList;
         }
         catch (IOException ex)
         {
             System.out.println("Could not read from file!");
             System.out.println(ex.toString());
-            return WordList;
+            return stringList;
         }
     }
 
-    public void saveWordList(ArrayList<WordPairs> WordList)
+    public void saveWordList(String content)
     {       
         FileWriter TheFileWriter;
-        String content = "";
 
         try
         {    
-            for(int i = 0; i < WordList.size(); i++)
+           /* for(int i = 0; i < WordList.size(); i++)
             {
                 content += "\n" + WordList.get(i).getDanishWord() + "," + WordList.get(i).getEnglishWord();
-            }     
+            }*/     
             TheFileWriter = new FileWriter(new File(filename),true);
             TheFileWriter.write(content);
             TheFileWriter.close();  

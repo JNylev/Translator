@@ -23,7 +23,7 @@ public class Translator implements WordPairControlInterface {
       String answer;
       String fileName = "Filename.txt";
       public ArrayList<WordPairs> wordList = new ArrayList();  
-      FileHandlerComplex fileHandler = new FileHandlerComplex();
+      FileHandler fileHandler = new FileHandler();
      
        
         
@@ -111,7 +111,16 @@ public class Translator implements WordPairControlInterface {
         
           if(fileHandler.loadWordList() != null ) 
           {
-              wordList = fileHandler.loadWordList();
+              
+              String stringList = fileHandler.loadWordList();
+              String[] tempArray = stringList.split(",");
+                
+                for(int i = 0; i < tempArray.length; i+=2)
+                {
+                    WordPairs temp = new WordPairs(tempArray[i],tempArray[i+1]);
+                    wordList.add(temp);
+                }
+              
               return true;
           }
           
@@ -128,9 +137,12 @@ public class Translator implements WordPairControlInterface {
     {
 
             //Saving
-           
-         
-         fileHandler.saveWordList(wordList);     
+        String content ="";
+        for(int i = 0; i < wordList.size(); i++)
+        {
+            content += "\n" + wordList.get(i).getDanishWord() + "," + wordList.get(i).getEnglishWord();
+        }   
+         fileHandler.saveWordList(content);     
          
         return saved;
     }
