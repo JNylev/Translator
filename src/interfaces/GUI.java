@@ -197,13 +197,20 @@ public class GUI extends javax.swing.JFrame
         // TODO add your handling code here:
         if( checkTextFields() )  
         {
-            if(trans.checkGuess(questionTextField.getText(),answerTextField.getText()))
-            {
-                outputArea.setText("You are completely correct, son!");
+            if( trans.lookup(questionTextField.getText()) != null )
+            {    
+                if(trans.checkGuess(questionTextField.getText(),answerTextField.getText()))
+                {
+                    outputArea.setText("You are completely correct, son!");
+                }
+                else
+                {
+                    outputArea.setText("You are incorrect....");
+                }
             }
             else
             {
-                outputArea.setText("You are incorrect....");
+                outputArea.setText("Word pair does not exist.");
             }
         }
     }//GEN-LAST:event_guessAnswerButtonActionPerformed
