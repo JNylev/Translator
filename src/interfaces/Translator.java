@@ -27,11 +27,11 @@ public class Translator implements WordPairControlInterface {
      
        
         
-    /**
+    /*
      * @param args the command line arguments
      */
  
-  /**
+  /*
      * Pre: Post: A new word pair is added to the existing collection of word
      * pairs. This method does not save to file!
      */
@@ -66,7 +66,7 @@ public class Translator implements WordPairControlInterface {
         return question;
     }
     
-     /**
+     /*
      * Pre: Post: Returns true if (question, quess) exists as a word pair in the
      * collection, otherwise false.
      */
