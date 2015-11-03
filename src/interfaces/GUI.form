@@ -51,12 +51,12 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="questionTextField" min="-2" pref="167" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="nextQuestionButton" min="-2" pref="66" max="-2" attributes="0"/>
+                              <Component id="nextQuestionButton" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="answerTextField" min="-2" pref="167" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="guessAnswerButton" max="32767" attributes="0"/>
+                              <Component id="guessAnswerButton" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
