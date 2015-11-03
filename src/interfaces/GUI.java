@@ -5,6 +5,8 @@
  */
 package interfaces;
 
+import javax.swing.UIManager;
+
 /**
  *
  * @author Henrik & Jakob
@@ -17,7 +19,8 @@ public class GUI extends javax.swing.JFrame {
      * Creates new form GUITest
      */
     
-    public GUI() {
+    public GUI() 
+    {
         trans = new Translator();
         trans.load(fileName);     
         setResizable( false ); 
@@ -230,9 +233,10 @@ public class GUI extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
+            
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    javax.swing.UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
                     break;
                 }
             }
