@@ -172,9 +172,20 @@ public class GUI extends javax.swing.JFrame
 
     private void nextQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionButtonActionPerformed
         // TODO add your handling code here:
-      
         String text = trans.getRandomQuestion();
+        int loopCount=0;
+        while(text.equalsIgnoreCase(questionTextField.getText()) && loopCount < 1000)
+        {
+            loopCount++;
+            text = trans.getRandomQuestion();
+        }
+        if(loopCount == 1000)
+        {
+             outputArea.setText("Only one word pair at this difficulty.");
+        }
         questionTextField.setText( text );
+       
+        
         
         
     }//GEN-LAST:event_nextQuestionButtonActionPerformed

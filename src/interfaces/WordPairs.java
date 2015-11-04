@@ -13,11 +13,26 @@ public class WordPairs
 {
     public String dkWord;
     public String engWord;
+    public int difficulty;
     
     public WordPairs(String dkWord, String engWord)
     {
         this.dkWord = dkWord;
         this.engWord = engWord;
+        
+        if(engWord.length()>6)
+        {
+            difficulty = 3;    
+        }
+        else if(engWord.length()>3)
+        {
+            difficulty = 2;
+        }
+        else
+        {
+            difficulty = 1;
+        }
+        
     }
     
     public WordPairs(boolean language, String word)
@@ -41,6 +56,16 @@ public class WordPairs
     public boolean firstLetterCheckEng(String index)
     {
         return engWord.startsWith(index);
+    }
+    
+    public int getDifficulty()
+    {
+        return difficulty;
+    }
+    
+    public void setDifficulty(int difficulty)
+    {
+        this.difficulty = difficulty;
     }
     
     public String getDanishWord()

@@ -15,23 +15,23 @@ import java.util.Random;
  */
 public class Translator implements WordPairControlInterface {
 
-      boolean pairExists;
-      boolean loaded;
-      boolean saved;
-      int size;
-      String question;
-      String answer;
-      String fileName = "Filename.txt";
-      public ArrayList<WordPairs> wordList = new ArrayList();  
-      FileHandler fileHandler = new FileHandler();
-     
+    boolean pairExists;
+    boolean loaded;
+    boolean saved;
+    int size;
+    String question;
+    String answer;
+    String fileName = "Filename.txt";
+    public ArrayList<WordPairs> wordList = new ArrayList();  
+    FileHandler fileHandler = new FileHandler();
+    public int diffAmount=0;
        
         
     /*
      * @param args the command line arguments
      */
  
-  /*
+    /*
      * Pre: Post: A new word pair is added to the existing collection of word
      * pairs. This method does not save to file!
      */
@@ -60,10 +60,29 @@ public class Translator implements WordPairControlInterface {
     
     public String getRandomQuestion()
     {
-        Random rGen = new Random();
-        int randNr = rGen.nextInt(size());
-        String question = wordList.get(randNr).getDanishWord();
-        return question;
+        while(0==0)
+        {
+            Random rGen = new Random();
+            int randNr = rGen.nextInt(size());
+            String question = wordList.get(randNr).getDanishWord();
+            System.out.println("Sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
+
+            if(diffAmount > 20 && wordList.get(randNr).getDifficulty() == 3)
+            {
+                System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
+                return question;
+            }
+            else if(diffAmount > 10 && diffAmount < 21 && wordList.get(randNr).getDifficulty() == 2)
+            {
+                System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
+                return question;
+            }
+            else if(diffAmount < 11 && wordList.get(randNr).getDifficulty() == 1)
+            {
+                System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
+                return question;    
+            }
+        }
     }
     
      /*
@@ -79,7 +98,8 @@ public class Translator implements WordPairControlInterface {
             {
                 if(quess.equalsIgnoreCase(wordList.get(i).getEnglishWord()))
                 {
-                pairExists = true;
+                    diffAmount+=1;
+                    pairExists = true;
                 }
             }
         }
@@ -109,11 +129,11 @@ public class Translator implements WordPairControlInterface {
     public boolean load(String filename)
     {
         
-          if(fileHandler.loadWordList() != null ) 
-          {
+        if(fileHandler.loadWordList() != null ) 
+        {
               
-              String stringList = fileHandler.loadWordList();
-              String[] tempArray = stringList.split(",");
+            String stringList = fileHandler.loadWordList();
+            String[] tempArray = stringList.split(",");
                 
                 for(int i = 0; i < tempArray.length; i+=2)
                 {
@@ -121,8 +141,8 @@ public class Translator implements WordPairControlInterface {
                     wordList.add(temp);
                 }
               
-              return true;
-          }
+            return true;
+        }
           
         
         return false;
@@ -140,10 +160,18 @@ public class Translator implements WordPairControlInterface {
         String content ="";
         for(int i = 0; i < wordList.size(); i++)
         {
-            content += "\n" + wordList.get(i).getDanishWord() + "," + wordList.get(i).getEnglishWord();
+            // Not adding \n for first save.
+            if(i==0)
+            {
+                content += wordList.get(i).getDanishWord() + "," + wordList.get(i).getEnglishWord();
+
+            }
+            else
+            {
+                content += "\n" + wordList.get(i).getDanishWord() + "," + wordList.get(i).getEnglishWord();
+            }
         }   
-         fileHandler.saveWordList(content);     
-         
+        fileHandler.saveWordList(content);
         return saved;
     }
     
