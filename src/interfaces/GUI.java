@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package interfaces;
 
 /**
@@ -171,9 +167,9 @@ public class GUI extends javax.swing.JFrame
     }// </editor-fold>//GEN-END:initComponents
 
     private void nextQuestionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextQuestionButtonActionPerformed
-        // TODO add your handling code here:
+        
         String text = trans.getRandomQuestion();
-        int loopCount=0;
+        int loopCount=0; // loopCount is added to prevent showing the same question twice.
         while(text.equalsIgnoreCase(questionTextField.getText()) && loopCount < 1000)
         {
             loopCount++;
@@ -191,32 +187,32 @@ public class GUI extends javax.swing.JFrame
     }//GEN-LAST:event_nextQuestionButtonActionPerformed
 
     private void lookUpWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lookUpWpButtonActionPerformed
-        // TODO add your handling code here:
+        // Here we find the answer to the question from questionTextField.
         String text = trans.lookup(questionTextField.getText());
         answerTextField.setText( text );
     }//GEN-LAST:event_lookUpWpButtonActionPerformed
 
     private void answerTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_answerTextFieldActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_answerTextFieldActionPerformed
 
     private void questionTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_questionTextFieldActionPerformed
-        // TODO add your handling code here:
+   
     }//GEN-LAST:event_questionTextFieldActionPerformed
 
     private void guessAnswerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guessAnswerButtonActionPerformed
-        // TODO add your handling code here:
+  
         if( checkTextFields() )  
         {
             if( trans.lookup(questionTextField.getText()) != null )
             {    
                 if(trans.checkGuess(questionTextField.getText(),answerTextField.getText()))
                 {
-                    outputArea.setText("You are completely correct, son!");
+                    outputArea.setText("You are completely correct!");
                 }
                 else
                 {
-                    outputArea.setText("You are incorrect....");
+                    outputArea.setText("You are incorrect...");
                 }
             }
             else
@@ -227,7 +223,7 @@ public class GUI extends javax.swing.JFrame
     }//GEN-LAST:event_guessAnswerButtonActionPerformed
 
     private void newWpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWpButtonActionPerformed
-        // TODO add your handling code here:
+  
         if( checkTextFields() )
         {         
             String text = trans.lookup(questionTextField.getText());
@@ -291,6 +287,11 @@ public class GUI extends javax.swing.JFrame
         
     }
     
+    /**
+     * This methods makes sure that we have text in both the question and answer text fields.
+     * It is used whenever either of those two fields are required.
+     * @return 
+     */
     public boolean checkTextFields()
     {
         

@@ -16,8 +16,7 @@ import java.io.IOException;
 
 public class FileHandler
 {
-    private String fileName = "Filename.txt"; 
-
+  
     public String loadWordList(String fileName)    
     {
         
@@ -59,7 +58,6 @@ public class FileHandler
 
     public boolean saveWordList(String content, String fileName)
     {       
-        this.fileName = fileName;
         FileWriter TheFileWriter;
 
         try

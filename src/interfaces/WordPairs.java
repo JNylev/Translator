@@ -48,16 +48,6 @@ public class WordPairs
         
     } 
     
-    public boolean firstLetterCheckDK(String index)
-    {
-        return dkWord.startsWith(index);
-    }
-    
-    public boolean firstLetterCheckEng(String index)
-    {
-        return engWord.startsWith(index);
-    }
-    
     public int getDifficulty()
     {
         return difficulty;
@@ -78,14 +68,6 @@ public class WordPairs
         return engWord;
     }
     
-    public void setDanishWord(String dkWord)
-    {
-        this.dkWord = dkWord;
-    }
-    
-    public void setEnglishWord(String engWord)
-    {
-        this.engWord = engWord;
-    }
+
     
 }

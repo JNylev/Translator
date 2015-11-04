@@ -9,7 +9,6 @@ Sko,Shoe
 Sprog,Language
 Tal,Number
 Hund,Dog
-Spørgsmål,Answer
 Forlade,Abandon
 Diamant,Diamond
 Bord,Table

@@ -70,18 +70,15 @@ public class Translator implements WordPairControlInterface {
           
             
             if(diffAmount > 20 && wordList.get(randNr).getDifficulty() == 3 || size() < 10)
-            {
-                System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
+            {  
                 return question;
             }
             else if(diffAmount > 10 && diffAmount < 21 && wordList.get(randNr).getDifficulty() == 2)
-            {
-                System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
+            {            
                 return question;
             }
             else if(diffAmount < 11 && wordList.get(randNr).getDifficulty() == 1)
             {
-                System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
                 return question;    
             }
             rnd++;
@@ -147,7 +144,7 @@ public class Translator implements WordPairControlInterface {
               
             return true;
         }
-        System.out.println("den er 0.");
+       
         return false;
     }
     
