@@ -1,0 +1,11 @@
+J-unit tests:
+The first test failed 50%
+
+Most errors are from loops that are based around having a large word pool (with variating sizes). It now has escape functions in situations where very few pairs are added.
+Our add function cleared the ArrayList to easier add smaller bits, but this part was moved to the GUI.
+
+
+
+The last J-unit test:
+We hit 100% - the major improvement after the first test was the filename. We had it hardcoded and overwritten several places. Now it will overwrite, but only with function given commands.
+Also removed an instance where "question" was able to return null in a large while loop, why is still a mystery since the getQuestion(getDanishWord) method worked flawlessly.
