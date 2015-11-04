@@ -3,11 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Henrik/Dropbox/Translator/src/interfaces/WordPairs.java</file>
-            <file>file:/C:/Users/Henrik/Dropbox/Translator/src/interfaces/GUI.java</file>
-            <file>file:/C:/Users/Henrik/Dropbox/Translator/src/interfaces/WordPairControlInterface.java</file>
-            <file>file:/C:/Users/Henrik/Dropbox/Translator/src/interfaces/Translator.java</file>
-            <file>file:/C:/Users/Henrik/Dropbox/Translator/src/interfaces/FileHandlerComplex.java</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/src/interfaces/FileHandler.java</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/src/interfaces/GUI.java</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/nbproject/project.properties</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/src/interfaces/WordPairs.java</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/src/interfaces/WordPairControlInterface.java</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/test/test/WordPair_Test_v3.java</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/src/interfaces/Translator.java</file>
+            <file>file:/home/jakob/NetBeansProjects/Translator/nbproject/private/config.properties</file>
         </group>
     </open-files>
 </project-private>

@@ -16,7 +16,7 @@ import java.io.IOException;
 
 public class FileHandler
 {
-    private final String filename = "Filename.txt"; 
+    private String fileName = "Filename.txt"; 
 
     public String loadWordList()    
     {
@@ -30,7 +30,7 @@ public class FileHandler
 
         try      
         {
-            TheFileReader = new FileReader(new File(filename));
+            TheFileReader = new FileReader(new File(fileName));
             TheBufferedReader = new BufferedReader(TheFileReader);
 
             while((newLine = TheBufferedReader.readLine()) != null)           
@@ -52,26 +52,30 @@ public class FileHandler
         {
             System.out.println("Could not read from file!");
             System.out.println(ex.toString());
-            return stringList;
         }
+        return stringList;
     }
 
-    public void saveWordList(String content)
+    public boolean saveWordList(String content, String fileName)
     {       
+        this.fileName = fileName;
         FileWriter TheFileWriter;
 
         try
         {    
-            TheFileWriter = new FileWriter(new File(filename),true);
+            TheFileWriter = new FileWriter(new File(fileName),true);
             TheFileWriter.write(content);
             TheFileWriter.close();  
+            return true;
         }
         
         catch (IOException ex)
         {
             System.out.println("Could not write to file!");
             System.out.println(ex.toString());
+            return false;
         }
+        
     }
 
 } // End of class.

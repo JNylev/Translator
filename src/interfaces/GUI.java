@@ -234,8 +234,9 @@ public class GUI extends javax.swing.JFrame
             if( text == null)
             {
 
-     
+                        trans.clear();
                          trans.add( questionTextField.getText(), answerTextField.getText() );
+                         
                          trans.save(fileName);
                          trans.load(fileName);
                          outputArea.setText("New wordpair added and saved.");

@@ -1,0 +1,3 @@
+hest,horse
+hus,house
+bord,table

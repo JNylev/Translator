@@ -37,9 +37,10 @@ public class Translator implements WordPairControlInterface {
      */
     public void add(String question, String answer)
     {
-        clear();
+        //clear();
         WordPairs tempPair = new WordPairs(question, answer); 
-        wordList.add(tempPair);       
+        wordList.add(tempPair); 
+       
     }
     
     // Return the number of wordpairs in the collection (not the file).
@@ -60,14 +61,15 @@ public class Translator implements WordPairControlInterface {
     
     public String getRandomQuestion()
     {
-        while(0==0)
+        int rnd =0;
+        while(rnd< 1000)
         {
             Random rGen = new Random();
             int randNr = rGen.nextInt(size());
             String question = wordList.get(randNr).getDanishWord();
-            System.out.println("Sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
-
-            if(diffAmount > 20 && wordList.get(randNr).getDifficulty() == 3)
+          
+            
+            if(diffAmount > 20 && wordList.get(randNr).getDifficulty() == 3 || size() < 10)
             {
                 System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
                 return question;
@@ -82,7 +84,9 @@ public class Translator implements WordPairControlInterface {
                 System.out.println("diffAmount er: " + diffAmount + " og sværhedsgraden er: " + wordList.get(randNr).getDifficulty());
                 return question;    
             }
+            rnd++;
         }
+        return question;
     }
     
      /*
@@ -129,7 +133,7 @@ public class Translator implements WordPairControlInterface {
     public boolean load(String filename)
     {
         
-        if(fileHandler.loadWordList() != null ) 
+        if(fileHandler.loadWordList().length() != 0 ) 
         {
               
             String stringList = fileHandler.loadWordList();
@@ -143,8 +147,7 @@ public class Translator implements WordPairControlInterface {
               
             return true;
         }
-          
-        
+        System.out.println("den er 0.");
         return false;
     }
     
@@ -153,7 +156,7 @@ public class Translator implements WordPairControlInterface {
      *Return true if successfully done.
      */
     
-    public boolean save(String filename)
+    public boolean save(String fileName)
     {
 
             //Saving
@@ -171,7 +174,7 @@ public class Translator implements WordPairControlInterface {
                 content += "\n" + wordList.get(i).getDanishWord() + "," + wordList.get(i).getEnglishWord();
             }
         }   
-        fileHandler.saveWordList(content);
+        saved = fileHandler.saveWordList(content, fileName);
         return saved;
     }
     
