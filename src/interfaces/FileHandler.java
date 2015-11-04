@@ -18,9 +18,10 @@ public class FileHandler
 {
     private String fileName = "Filename.txt"; 
 
-    public String loadWordList()    
+    public String loadWordList(String fileName)    
     {
-
+        
+        
         String newLine;
         String stringList ="";
 

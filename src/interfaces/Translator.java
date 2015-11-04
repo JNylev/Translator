@@ -130,13 +130,13 @@ public class Translator implements WordPairControlInterface {
      load all word pairs from file "filename.txt" 
      Return true if successfully done.
     */
-    public boolean load(String filename)
+    public boolean load(String fileName)
     {
         
-        if(fileHandler.loadWordList().length() != 0 ) 
+        if(fileHandler.loadWordList(fileName).length() != 0 ) 
         {
               
-            String stringList = fileHandler.loadWordList();
+            String stringList = fileHandler.loadWordList(fileName);
             String[] tempArray = stringList.split(",");
                 
                 for(int i = 0; i < tempArray.length; i+=2)
