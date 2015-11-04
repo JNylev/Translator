@@ -210,7 +210,7 @@ public class GUI extends javax.swing.JFrame
             }
             else
             {
-                outputArea.setText("Word pair does not exist.");
+                outputArea.setText("Word pair does not exist in the program.");
             }
         }
     }//GEN-LAST:event_guessAnswerButtonActionPerformed
